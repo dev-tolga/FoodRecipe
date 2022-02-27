@@ -1,11 +1,17 @@
-import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import { SIZES, COLORS } from "../constant";
 import { LinearGradient } from "expo-linear-gradient";
 import CustomButton from "../components/custom/CustomButton";
 
-const Login = () => {
-  const img = '../../assets/images/login-background.png';
+const Login = ({ navigation }) => {
+  const img = "../../assets/images/login-background.png";
   return (
     <View style={styles.container}>
       <View
@@ -55,7 +61,6 @@ const Login = () => {
         <View style={{ flex: 1, justifyContent: "center" }}>
           <CustomButton
             buttonStyle={{
-             
               paddingVertical: 18,
               borderRadius: 20,
               borderColor: COLORS.darkLime,
@@ -70,7 +75,7 @@ const Login = () => {
               fontWeight: "bold",
             }}
             pressEvent={() => {
-              alert("Button pressed!");
+             navigation.navigate("Home");
             }}
             buttonTitle="Login"
           />
@@ -83,7 +88,7 @@ const Login = () => {
               borderWidth: 1,
               alignItems: "center",
               backgroundColor: COLORS.darkGreen,
-              marginBottom: 30
+              marginBottom: 30,
             }}
             textStyle={{
               color: COLORS.white,
@@ -109,22 +114,20 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     justifyContent: "flex-end",
-   
   },
   container: {
     flex: 1,
     backgroundColor: COLORS.black,
   },
   buttonStyle: {
-     color: 'white',
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        padding: 10,
-        margin: 10,
-        borderRadius: 10,
-        backgroundColor: '#2AD699',
-        borderColor: '#2AD699',
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    padding: 10,
+    margin: 10,
+    borderRadius: 10,
+    backgroundColor: "#2AD699",
+    borderColor: "#2AD699",
   },
-
 });

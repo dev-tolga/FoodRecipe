@@ -4,9 +4,7 @@ import React from 'react'
 const CustomButton = ({pressEvent, buttonStyle, buttonTitle, textStyle}) => {
   return (
     <TouchableOpacity
-      onPress={() => {
-        alert("Button pressed!");
-      }}
+      onPress={pressEvent}
       style={{...buttonStyle}}
     >
       <Text
