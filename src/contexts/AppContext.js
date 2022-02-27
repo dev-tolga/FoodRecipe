@@ -12,7 +12,6 @@ export const AppProvider = ({ children }) => {
     const response = await getRecipes();
     if (response && response.status === 200) {
       setRecipes(response.data);
-      console.log("recipes", response.data);
     }
   };
   useEffect(() => {
@@ -23,7 +22,7 @@ export const AppProvider = ({ children }) => {
     isLoggedIn,
     setIsLoggedIn,
     recipes,
-    setRecipes,
+   
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

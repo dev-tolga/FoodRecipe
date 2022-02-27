@@ -3,7 +3,7 @@ import React from "react";
 import { useAppContext } from "../contexts/AppContext";
 
 const RecipeScreen = () => {
-  const { recipes, setRecipes } = useAppContext();
+  const { recipes } = useAppContext();
   console.log("RecipeScreen: ", recipes);
 
   return (
