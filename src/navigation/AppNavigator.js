@@ -7,6 +7,7 @@ import RecipeScreen from "../screens/RecipeScreen";
 import { COLORS } from "../constant";
 import Borkmarks from "../screens/Borkmarks";
 import NewRecipe from "../screens/NewRecipe";
+import RecipeDetail from "../screens/RecipeDetail";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -46,6 +47,7 @@ const AppNavigator = () => {
         headerShown: false
    }} />
     <Stack.Screen name="Home" component={TabNavigator}/>
+    <Stack.Screen name="RecipeDetail" component={RecipeDetail}/>
    </Stack.Navigator>
   );
 };
