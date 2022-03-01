@@ -14,7 +14,7 @@ const ListItem = ({ item,navigation }) => {
         backgroundColor: COLORS.grzay2,
         marginHorizontal: SIZES.padding,
       }}
-      onPress={() => navigation.navigate("RecipeDetail", item.id)}
+      onPress={() => navigation.navigate("RecipeDetail", {itemId:item.id})}
     >
       <Image
         source={{
