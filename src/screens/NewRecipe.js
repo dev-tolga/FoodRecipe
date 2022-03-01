@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+
+import NewRecipeForm from "../components/Forms/NewRecipeForm";
 
 const NewRecipe = () => {
   return (
     <View>
-      <Text>NewRecipe</Text>
+      <NewRecipeForm />
     </View>
-  )
-}
+  );
+};
 
-export default NewRecipe
+export default NewRecipe;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
