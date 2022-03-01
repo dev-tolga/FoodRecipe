@@ -9,6 +9,7 @@ import Borkmarks from "../screens/Borkmarks";
 import NewRecipe from "../screens/NewRecipe";
 import RecipeDetail from "../screens/RecipeDetail";
 
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -42,13 +43,17 @@ const TabNavigator = () => {
 
 const AppNavigator = () => {
   return (
-   <Stack.Navigator screenOptions={{ headerShown:false }} >
-   <Stack.Screen name="Login" component={Login} options={{
-        headerShown: false
-   }} />
-    <Stack.Screen name="Home" component={TabNavigator}/>
-    <Stack.Screen name="RecipeDetail" component={RecipeDetail}/>
-   </Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="Home" component={TabNavigator} />
+      <Stack.Screen name="RecipeDetail" component={RecipeDetail} />
+    </Stack.Navigator>
   );
 };
 

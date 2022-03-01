@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const RecipeDetail = ({ item, navigation }) => {
+const RecipeDetail = ({ navigation,route }) => {
   return (
     <View>
-      <Text>{item.name}</Text>
+      <Text>{route.params}</Text>
     </View>
   );
 };
