@@ -44,16 +44,20 @@ const ListItem = ({ item, navigation }) => {
         style={{ width: 90, height: 100, borderRadius: SIZES.radius }}
       />
       {/* <Image source={categoryItem.image} resizeMode="cover" style={styles.image} /> */}
-      <View style={{ marginLeft: 10 }}>
-        <Text style={{ fontSize: 16, fontWeight: "bold" }}>{item.name}</Text>
+      <View style={{ width: "65%", paddingHorizontal: 20 }}>
         <Text
           style={{
-            color: COLORS.gray2,
-            fontSize: SIZES.body4,
-            lineHeight: 22,
+            flex: 1,
+            fontSize: SIZES.h2,
+            lineHeight: 30,
           }}
         >
-          {item.country}
+          {item.name}
+        </Text>
+        <Text
+          style={{ color: COLORS.gray, fontSize: SIZES.body4, lineHeight: 22 }}
+        >
+          {item.country} | {item.isFavourite ? "Favourite" : "Not Favourite"}
         </Text>
       </View>
       <MaterialCommunityIcons

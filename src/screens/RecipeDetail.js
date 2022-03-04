@@ -1,14 +1,25 @@
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { getRecipeById } from "../network/requests/recipes";
 
 const RecipeDetail = ({ navigation, route }) => {
   const [recipe, setRecipe] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
+  const [steps, setSteps] = useState([]);
 
   const getData = async () => {
     const response = await getRecipeById(route.params.itemId);
     if (response && response.status === 200) {
       setRecipe(response.data);
+      setIngredients(response.data.ingredients);
+      setSteps(response.data.steps);
     }
   };
 
@@ -17,16 +28,23 @@ const RecipeDetail = ({ navigation, route }) => {
   }, []);
 
   console.log(recipe.image);
+ 
 
   return (
     <ScrollView>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" ,margin:10}}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          margin: 10,
+        }}
+      >
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={{
-           
-            padding:10,
-            margin:10,
+            padding: 10,
+            margin: 10,
             backgroundColor: "white",
             backgroundColor: "transparent",
             justifyContent: "center",
@@ -50,13 +68,23 @@ const RecipeDetail = ({ navigation, route }) => {
           <Text style={{ fontSize: 20, fontWeight: "bold" }}>
             {recipe.country}
           </Text>
-          {recipe.ingredients.map((item, index) => (
-            <Text key={index}>{item}</Text>
-          ))}
-          <Text style={{ fontSize: 20, fontWeight: "bold" ,alignItems:'center',textAlign:'center',marginTop:5}}>
-            ========================= Steps =========================
-           
-          </Text>
+          {ingredients.map((item, index) => {
+            return <Text key={index}>{item}</Text>;
+          })}
+
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "bold",
+              alignItems: "center",
+              textAlign: "center",
+              marginTop: 5,
+            }}
+          ></Text>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>Steps</Text>
+          {steps.map((item, index) => {
+            return <Text key={index}>{item}</Text>;
+          })}
         </View>
       </View>
     </ScrollView>
