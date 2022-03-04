@@ -1,20 +1,41 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { SIZES, COLORS } from "../../constant";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAppContext } from "../../contexts/AppContext";
+import { updateRecipe } from "../../network/requests/recipes";
 
-const ListItem = ({ item,navigation }) => {
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+const ListItem = ({ item, navigation }) => {
+  const { recipes } = useAppContext();
+  const [isFavourite, setIsFavourite] = useState(item.isFavourite);
+
+  useEffect(async () => {
+    const updatedItem = {
+      id: item.id,
+      name: item.name,
+      country: item.country,
+      image: item.image,
+      ingredients: item.ingredients,
+      steps: item.steps,
+      isFavourite: isFavourite,
+    };
+    await updateRecipe(item.id, updatedItem);
+  }, [isFavourite]);
+
   return (
     <TouchableOpacity
       style={{
         flexDirection: "row",
         alignItems: "center",
+        justifyContent: "space-between",
         padding: 10,
         marginTop: 10,
         borderRadius: SIZES.radius,
         backgroundColor: COLORS.grzay2,
         marginHorizontal: SIZES.padding,
       }}
-      onPress={() => navigation.navigate("RecipeDetail", {itemId:item.id})}
+      onPress={() => navigation.navigate("RecipeDetail", { itemId: item.id })}
     >
       <Image
         source={{
@@ -22,7 +43,6 @@ const ListItem = ({ item,navigation }) => {
         }}
         style={{ width: 90, height: 100, borderRadius: SIZES.radius }}
       />
-
       {/* <Image source={categoryItem.image} resizeMode="cover" style={styles.image} /> */}
       <View style={{ marginLeft: 10 }}>
         <Text style={{ fontSize: 16, fontWeight: "bold" }}>{item.name}</Text>
@@ -36,6 +56,12 @@ const ListItem = ({ item,navigation }) => {
           {item.country}
         </Text>
       </View>
+      <MaterialCommunityIcons
+        style={{ alignSelf: "flex-start" }}
+        name={isFavourite ? "star" : "star-outline"}
+        size={22}
+        onPress={() => setIsFavourite((prevState) => !prevState)}
+      />
     </TouchableOpacity>
   );
 };

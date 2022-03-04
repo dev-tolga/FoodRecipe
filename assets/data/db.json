@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "Coconut Rice",
-      "image": "https: //www.indianhealthyrecipes.com/wp-content/uploads/2021/05/coconut-rice-recipe.jpg",
       "country": "India",
+      "image": "https: //www.indianhealthyrecipes.com/wp-content/uploads/2021/05/coconut-rice-recipe.jpg",
       "ingredients": [
         "1 cup rice",
         "1/2 cup coconut milk",
@@ -16,58 +16,27 @@
       "steps": [
         "Mix ingredients",
         "Bake"
-      ]
+      ],
+      "isFavourite": true
     },
     {
       "id": 2,
-      "name": "test2",
-      "image": null,
-      "country": "test2",
+      "name": "Coconut Rice",
+      "country": "India",
+      "image": "https: //www.indianhealthyrecipes.com/wp-content/uploads/2021/05/coconut-rice-recipe.jpg",
       "ingredients": [
-        "test2",
-        "test2",
-        "test2"
+        "1 cup rice",
+        "1/2 cup coconut milk",
+        "1/2 cup coconut sugar",
+        "1/2 cup coconut oil",
+        "1/2 cup coconut flour",
+        "1/2 cup coconut sugar"
       ],
       "steps": [
-        "test2",
-        "test2"
-      ]
-    },
-    {
-      "id": 1646164278525,
-      "name": "Sdsd",
-      "image": null,
-      "country": "Ssd",
-      "ingredients": [
-        "Sdsd",
-        "sdsd",
-        "sdsd"
+        "Mix ingredients",
+        "Bake"
       ],
-      "steps": [
-        "Sdsd",
-        "sd",
-        "sd",
-        "sd",
-        "sd",
-        "sd"
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Ds",
-      "image": null,
-      "country": "Test",
-      "ingredients": [
-        "Sdsd",
-        "sd",
-        "sd"
-      ],
-      "steps": [
-        "Sd",
-        "sd",
-        "sd",
-        "sd"
-      ]
+      "isFavourite": false
     }
   ]
 }

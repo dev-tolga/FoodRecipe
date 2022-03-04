@@ -2,13 +2,12 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Login from '../screens/Login';
+import Login from "../screens/Login";
 import RecipeScreen from "../screens/RecipeScreen";
 import { COLORS } from "../constant";
-import Borkmarks from "../screens/Borkmarks";
+import Bookmarks from "../screens/Bookmarks";
 import NewRecipe from "../screens/NewRecipe";
 import RecipeDetail from "../screens/RecipeDetail";
-
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,7 +35,7 @@ const TabNavigator = () => {
     >
       <Stack.Screen name="NewRecipe" component={NewRecipe} />
       <Tab.Screen name="RecipeScreen" component={RecipeScreen} />
-      <Tab.Screen name="Borkmarks" component={Borkmarks} />
+      <Tab.Screen name="Bookmarks" component={Bookmarks} />
     </Tab.Navigator>
   );
 };
