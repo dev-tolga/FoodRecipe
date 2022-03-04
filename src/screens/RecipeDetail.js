@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import { getRecipeById } from "../network/requests/recipes";
 
@@ -19,32 +19,47 @@ const RecipeDetail = ({ navigation, route }) => {
   console.log(recipe.image);
 
   return (
-    <View style={{ flex: 3, justifyContent: "center", alignItems: "center" }}>
-      <Image
-        source={{
-          uri: "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/05/coconut-rice-recipe.jpg",
-        }}
-        style={{ width: 200, height: 200 }}
-      />
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>{recipe.name}</Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-          {recipe.country}
-        </Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-          {recipe.category}
-        </Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-          {recipe.description}
-        </Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-          {recipe.ingredients}
-        </Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>{recipe.steps}</Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>{recipe.time}</Text>
-        
+    <ScrollView>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" ,margin:10}}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{
+           
+            padding:10,
+            margin:10,
+            backgroundColor: "white",
+            backgroundColor: "transparent",
+            justifyContent: "center",
+            flexDirection: "row",
+          }}
+        >
+          <Image
+            source={{
+              uri: "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/05/coconut-rice-recipe.jpg",
+            }}
+            style={{ width: "100%", height: 300, marginTop: 50 }}
+          />
+        </TouchableOpacity>
+
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+            {recipe.name}
+          </Text>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+            {recipe.country}
+          </Text>
+          {recipe.ingredients.map((item, index) => (
+            <Text key={index}>{item}</Text>
+          ))}
+          <Text style={{ fontSize: 20, fontWeight: "bold" ,alignItems:'center',textAlign:'center',marginTop:5}}>
+            ========================= Steps =========================
+           
+          </Text>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
