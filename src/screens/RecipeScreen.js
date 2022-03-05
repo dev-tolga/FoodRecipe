@@ -21,7 +21,6 @@ const RecipeScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (search) => {
-
     setSearchTerm(search);
     if (search.trim()) {
       console.log(search);

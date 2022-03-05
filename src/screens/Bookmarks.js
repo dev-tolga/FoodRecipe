@@ -1,14 +1,35 @@
-import { StyleSheet, Text, View, FlatList } from "react-native";
-import React, { useEffect } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  ActivityIndicator,
+} from "react-native";
+import React, { useEffect, useState } from "react";
 import { useAppContext } from "../contexts/AppContext";
-import { updateRecipe } from "../network/requests/recipes";
+import { getRecipes } from "../network/requests/recipes";
 
 import ListItem from "../components/recipe-list/ListItem";
 
 const Bookmarks = ({ navigation }) => {
   const { recipes } = useAppContext();
-  const data = recipes.filter((item) => item.isFavourite == true);
-  return (
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const getBookmarks = async () => {
+    setLoading(true);
+    const res = await getRecipes();
+    setData(res.data.filter((i) => i.isFavourite == true));
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    navigation.addListener("focus", () => getBookmarks());
+  }, []);
+
+  return loading ? (
+    <ActivityIndicator size={"large"} />
+  ) : (
     <View>
       <FlatList
         data={data}
