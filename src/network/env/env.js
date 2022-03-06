@@ -1,3 +1,3 @@
 export const env = {
-  endpoint: "http://192.168.1.41:3000/",
+  endpoint: "http://192.168.1.23:3000/",
 };
